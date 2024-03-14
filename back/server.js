@@ -5,11 +5,12 @@ import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/messages.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
+import cors from "cors"; // Import cors package
 
 dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
-
+app.use(cors());
 // to parse the incoming requests with JSON payloads (from req.body)
 app.use(express.json());
 app.use(cookieParser());
