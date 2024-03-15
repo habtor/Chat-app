@@ -1,0 +1,17 @@
+.inShadoww {
+  box-shadow: inset 1px 1px 5px #1a1a1a, inset -1px -1px 5px #3d3d3d;
+}
+
+.outShadow {
+  box-shadow: 1px 1px 5px #000000, -1px -1px 5px #777777;
+}
+.outShadowSidebar {
+  box-shadow: 5px 5px 10px #000000, -5px -5px 10px #3a3a3a;
+}
+.outShadowClicked {
+  box-shadow: inset 1px 1px 5px #000000, inset -1px -1px 5px #777777;
+}
+.picShadow {
+  border: 3px solid rgb(27, 36, 40);
+  box-shadow: 1px 1px 5px #000000, -1px -1px 5px #777777;
+}
