@@ -1,19 +1,12 @@
-import LogoutBtn from "../../components/LogoutBtn";
-import Messages from "../../components/Messages";
-import SideBar from "../../components/Sidebar";
+import MessageContainer from "../../components/messages/MessagesContainer";
+import Sidebar from "../../components/sidebar/Sidebar";
 
 const Home = () => {
   return (
-    <>
-      <div className="bg-myGray  w-screen h-screen m-auto">
-        <div className="bg-myGray p-2 flex justify-end max-w-screen-2xl m-auto">
-          <SideBar />
-          <Messages />
-          <LogoutBtn />
-        </div>
-      </div>
-    </>
+    <div className="flex sm:h-[450px] md:h-[550px] rounded-lg overflow-hidden bg-gray-400 bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-0">
+      <Sidebar />
+      <MessageContainer />
+    </div>
   );
 };
-
 export default Home;
