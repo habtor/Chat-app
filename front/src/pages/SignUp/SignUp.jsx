@@ -5,12 +5,13 @@ import useSignup from "../../hooks/useSignup";
 
 const SignUp = () => {
   const [inputs, setInputs] = useState({
-    fullName: "",
+    fullname: "",
     username: "",
     password: "",
     confirmPassword: "",
     gender: "",
   });
+  console.log(inputs);
 
   const { loading, signup } = useSignup();
 
@@ -39,9 +40,9 @@ const SignUp = () => {
               type="text"
               placeholder="John Doe"
               className="w-full input input-bordered  h-10"
-              value={inputs.fullName}
+              value={inputs.fullname}
               onChange={(e) =>
-                setInputs({ ...inputs, fullName: e.target.value })
+                setInputs({ ...inputs, fullname: e.target.value })
               }
             />
           </div>

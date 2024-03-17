@@ -2,7 +2,6 @@ import useConversation from "../../zustand/useConversation";
 
 const Conversation = ({ conversation, lastIdx, emoji }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
-
   const isSelected = selectedConversation?._id === conversation._id;
 
   return (
@@ -21,7 +20,9 @@ const Conversation = ({ conversation, lastIdx, emoji }) => {
 
         <div className="flex flex-col flex-1">
           <div className="flex gap-3 justify-between">
+            <div></div>
             <p className="font-bold text-gray-200">{conversation.fullname}</p>
+            <p className="font-bold text-gray-200">{""}</p>
             <span className="text-xl">{emoji}</span>
           </div>
         </div>

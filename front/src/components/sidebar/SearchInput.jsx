@@ -29,8 +29,8 @@ const SearchInput = () => {
     <form onSubmit={handleSubmit} className="flex items-center gap-2">
       <input
         type="text"
-        placeholder="Search…"
-        className="input input-bordered rounded-full"
+        placeholder="Search contacts..."
+        className=" inShadoww bg-inherit p-2 input-bordered outline-none rounded-full"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
