@@ -8,8 +8,6 @@ const Conversations = () => {
   const { authUser } = useAuthContext();
   const { loading, conversations } = useGetConversations();
   const { messages } = useGetAllMessages();
-  // console.log(messages);
-  // console.log(conversations);
   return (
     <div className="py-2 flex flex-col overflow-auto">
       {conversations.map((conversation, idx) => (

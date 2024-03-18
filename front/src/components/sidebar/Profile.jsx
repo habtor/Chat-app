@@ -7,10 +7,13 @@ const Profile = () => {
   return (
     <div>
       <div className="text-white font-bold text-2xl flex items-center justify-between w-full mb-5">
-        <div className="flex items-center">
-          <div className="rounded-full h-20 w-20 bg-[url('https://www.spring.org.uk/images/wide-face.jpg')] bg-cover bg-center"></div>
+        <div className="flex items-center cursor-default">
+          <div className="flex items-center rounded-full h-16 w-16 bg-cover bg-center">
+            {" "}
+            <img className="w-16" src={authUser.profilePic} alt="" />
+          </div>
           <div className="flex flex-col">
-            <span className="text-lg ml-2 text-gray-600">
+            <span className="text-lg ml-2 text-gray-600 font-medium">
               {authUser.fullname}
             </span>
             <span className="text-xs text-gray-400 ml-2">
