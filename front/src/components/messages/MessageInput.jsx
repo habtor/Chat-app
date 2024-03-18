@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BsSend } from "react-icons/bs";
 import useSendMessage from "../../hooks/useSendMessage";
 
 const MessageInput = () => {
@@ -29,7 +30,7 @@ const MessageInput = () => {
           {loading ? (
             <div className="loading loading-spinner"></div>
           ) : (
-            <p>send</p>
+            <BsSend />
           )}
         </button>
       </div>
