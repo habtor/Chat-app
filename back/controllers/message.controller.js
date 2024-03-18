@@ -53,9 +53,29 @@ export const getMessages = async (req, res) => {
     const messsages = conversation.messages;
 
     return res.status(200).json(messsages);
-    
   } catch (error) {
     console.log("Error in getting message controller", error.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const getAllMessagesForUser = async (req, res) => {
+  try {
+    const senderId = req.user._id;
+
+    const allConversations = await Conversation.find({
+      participants: senderId,
+    }).populate("messages");
+
+    let allMessages = [];
+
+    allConversations.forEach((conversation) => {
+      allMessages = allMessages.concat(conversation.messages);
+    });
+
+    return res.status(200).json(allMessages);
+  } catch (error) {
+    console.log("Error in getting all messages for user controller", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
