@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 body {
-  background-color: #2a2f35;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("../bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .inShadoww {
-  box-shadow: inset 1px 1px 5px #1a1a1a, inset -1px -1px 5px #3d3d3d;
+  box-shadow: inset 2px 2px 2px #b4b4b4, inset -2px -2px 2px #ffffff;
 }
 
 .outShadow {
-  box-shadow: 1px 1px 5px #000000, -1px -1px 5px #777777;
+  box-shadow: 3px 3px 4px #b4b4b4, -3px -3px 4px #f2f2f2;
 }
 .outShadowSidebar {
   box-shadow: 5px 5px 10px #000000, -5px -5px 10px #3a3a3a;

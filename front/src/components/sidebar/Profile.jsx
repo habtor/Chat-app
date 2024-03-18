@@ -10,7 +10,7 @@ const Profile = () => {
         <div className="flex items-center">
           <div className="rounded-full h-20 w-20 bg-[url('https://www.spring.org.uk/images/wide-face.jpg')] bg-cover bg-center"></div>
           <div className="flex flex-col">
-            <span className="text-lg ml-2 text-white-400">
+            <span className="text-lg ml-2 text-gray-600">
               {authUser.fullname}
             </span>
             <span className="text-xs text-gray-400 ml-2">
@@ -18,7 +18,9 @@ const Profile = () => {
             </span>
           </div>
         </div>
-        <GoPencil />
+        <div className="flex text-gray-600 inShadoww rounded-full h-8 w-8">
+          <GoPencil className="h-5 w-5 m-auto cursor-pointer" />
+        </div>
       </div>
 
       {/* <div className="ml-5">Chats</div> */}
