@@ -3,6 +3,10 @@ import { GoPencil } from "react-icons/go";
 
 const Profile = () => {
   const { authUser } = useAuthContext();
+  const handleUploadImage = (e) => {
+    const file = e.target.files[0];
+    console.log(file);
+  };
 
   return (
     <div>
@@ -21,8 +25,16 @@ const Profile = () => {
             </span>
           </div>
         </div>
-        <div className="flex text-gray-600 inShadoww rounded-full h-8 w-8">
-          <GoPencil className="h-5 w-5 m-auto cursor-pointer" />
+        <div className="flex text-gray-600 hover:text-blue-500  cursor-pointer rounded-full ">
+          <label htmlFor="file" className=" cursor-pointer">
+            <GoPencil className="h-5 w-5 m-auto" />
+          </label>
+          <input
+            type="file"
+            id="file"
+            className="hidden"
+            onChange={handleUploadImage}
+          />
         </div>
       </div>
 

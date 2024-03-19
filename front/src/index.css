@@ -81,3 +81,17 @@ body {
     transform: translate3d(4px, 0, 0);
   }
 }
+
+.custom-file-upload {
+  border: 2px solid #ccc;
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.custom-file-upload:hover {
+  background-color: #e9e9e9;
+}

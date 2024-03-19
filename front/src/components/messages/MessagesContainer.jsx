@@ -10,13 +10,15 @@ const MessageContainer = () => {
     return () => setSelectedConversation(null);
   }, [setSelectedConversation]);
 
+  // bg-[url('https://www.comomeeritalie.nl/wp-content/uploads/2018/04/greenway-wandeling-comomeer-colonno.jpg')] bg-no-repeat bg-center bg-cover
+
   return (
-    <div className="flex flex-col w-full mx-auto">
+    <div className="flex flex-col w-full mx-auto bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 ">
       {!selectedConversation ? (
         <NoChatSelected />
       ) : (
         <>
-          <div className="flex flex-col items-center bg-inherit px-4 py-2 mb-2 m-auto">
+          <div className="flex flex-col items-center  px-4 py-2 mb-2 m-auto">
             <span className="label-text">
               <img
                 className="h-12 w-12"
