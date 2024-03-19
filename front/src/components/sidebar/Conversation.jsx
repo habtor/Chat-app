@@ -1,4 +1,5 @@
 import useConversation from "../../zustand/useConversation";
+import { extractTime } from "../../utils/extractTime";
 
 const Conversation = ({
   conversation,
@@ -10,7 +11,6 @@ const Conversation = ({
   const { selectedConversation, setSelectedConversation } = useConversation();
   const isSelected = selectedConversation?._id === conversation._id;
 
-  // Filter messages belonging to the current conversation and the current user
   const conversationMessages = messages.filter(
     (message) =>
       (message.senderId === conversation._id ||
@@ -19,17 +19,23 @@ const Conversation = ({
         message.receiverId === currentUserID)
   );
 
-  // Get the last message from the conversation, if available
   const lastMessage =
     conversationMessages.length > 0
       ? conversationMessages[conversationMessages.length - 1]
       : null;
 
+  const lastMessageTime = lastMessage?.createdAt;
+  let formattedTime = "";
+
+  if (lastMessageTime) {
+    formattedTime = extractTime(lastMessageTime);
+  }
+
   return (
     <>
       <div
-        className={`flex gap-2 items-center rounded p-2 py-1 cursor-pointer   m-2
-				${isSelected ? "inShadoww" : "outShadow"}
+        className={`flex gap-2 items-center rounded p-2 py-1 cursor-pointer   m-2 ml-0
+				${isSelected ? "inShadoww" : ""}
 			`}
         onClick={() => setSelectedConversation(conversation)}
       >
@@ -44,16 +50,20 @@ const Conversation = ({
             <div>
               <p className="font-bold text-gray-700">{conversation.fullname}</p>
 
-              <p className="font-bold text-gray-500 text-xs">
+              <p className="max-w-[10rem] max-h-4 overflow-hidden font-bold text-gray-500 text-xs">
                 {lastMessage ? lastMessage.message : "Start a conversation"}
               </p>
             </div>
-            <span className="text-xl">{emoji}</span>
+            <span className="text-sm flex items-center">
+              {formattedTime ? formattedTime : emoji}
+            </span>
           </div>
         </div>
       </div>
 
-      {!lastIdx && <div className="divider my-0 py-0 h-1" />}
+      {!lastIdx && (
+        <div className="divider bg-gray-200 my-0 py-0 h-[2px] rounded-full" />
+      )}
     </>
   );
 };
