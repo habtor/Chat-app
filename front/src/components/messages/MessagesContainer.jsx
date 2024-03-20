@@ -10,8 +10,6 @@ const MessageContainer = () => {
     return () => setSelectedConversation(null);
   }, [setSelectedConversation]);
 
-  // bg-[url('https://www.comomeeritalie.nl/wp-content/uploads/2018/04/greenway-wandeling-comomeer-colonno.jpg')] bg-no-repeat bg-center bg-cover
-
   return (
     <div className="flex flex-col w-full mx-auto bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 ">
       {!selectedConversation ? (
@@ -30,7 +28,9 @@ const MessageContainer = () => {
               {selectedConversation.fullname}
             </span>
           </div>
-          <div className="h-[1px] w-2/3 bg-black mx-auto mb-8"></div>
+          <div className="px-10">
+            <div className="h-[1px] w-full bg-gray-400 mx-auto mb-8 p"></div>
+          </div>
           <Messages />
           <MessageInput />
         </>
