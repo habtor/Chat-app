@@ -7,7 +7,7 @@ function ChatFilters() {
   };
   return (
     <div className="flex flex-col mb-5">
-      <p className="font-bold mb-4">Chats</p>
+      
       <ul className="flex text-sm ">
         <li
           className={`${
