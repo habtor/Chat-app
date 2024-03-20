@@ -1,15 +1,18 @@
-import { useAuthContext } from "../../context/AuthContext";
+import { useState } from "react";
+import { useAuthContext } from "../../../context/AuthContext";
 import { GoPencil } from "react-icons/go";
+import UpdateForm from "./UpdateForm";
 
 const Profile = () => {
   const { authUser } = useAuthContext();
-  const handleUploadImage = (e) => {
-    const file = e.target.files[0];
-    console.log(file);
+  const [showForm, setShowForm] = useState(false);
+
+  const handleShowUpdateForm = () => {
+    setShowForm(!showForm);
   };
 
   return (
-    <div>
+    <div className="z-10">
       <div className="text-white font-bold text-2xl flex items-center justify-between w-full mb-5">
         <div className="flex items-center cursor-default">
           <div className="flex items-center rounded-full h-16 w-16 bg-cover bg-center">
@@ -25,21 +28,17 @@ const Profile = () => {
             </span>
           </div>
         </div>
-        <div className="flex text-gray-600 hover:text-blue-500  cursor-pointer rounded-full ">
-          <label htmlFor="file" className=" cursor-pointer">
-            <GoPencil className="h-5 w-5 m-auto" />
-          </label>
-          <input
-            type="file"
-            id="file"
-            className="hidden"
-            onChange={handleUploadImage}
+        <div className="flex text-gray-600  rounded-full ">
+          <GoPencil
+            className="h-5 w-5 cursor-pointer hover:text-blue-500"
+            onClick={() => handleShowUpdateForm()}
           />
+
+          <div className={`${showForm ? "block" : "hidden"} `}>
+            <UpdateForm />
+          </div>
         </div>
       </div>
-
-      {/* <div className="ml-5">Chats</div> */}
-      {/* <div className="h-px w-full bg-gray-900 m-auto mb-5"></div> */}
     </div>
   );
 };

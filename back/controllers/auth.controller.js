@@ -4,7 +4,7 @@ import generateTokenAndSetCookies from "../utils/generateToken.js";
 
 export const signupUser = async (req, res) => {
   try {
-    const { fullname, username, password, confirmPassword, gender } = req.body;
+    const { fullname, username, password, confirmPassword } = req.body;
 
     if (password !== confirmPassword) {
       return res.status(400).json({ error: "Password don't match" });
@@ -20,15 +20,13 @@ export const signupUser = async (req, res) => {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
-    const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
+    const profilePic = `https://avatar.iran.liara.run/username?username=${fullname}`;
 
     const newUser = new User({
       fullname,
       username,
       password: hashedPassword,
-      gender,
-      profilePic: gender === "male" ? boyProfilePic : girlProfilePic,
+      profilePic: profilePic,
     });
 
     if (newUser) {
@@ -69,7 +67,7 @@ export const loginUser = async (req, res) => {
 
     res.status(200).json({
       _id: user._id,
-      fullanme: user.fullname,
+      fullname: user.fullname,
       username: user.username,
       profilePic: user.profilePic,
     });
@@ -81,7 +79,7 @@ export const loginUser = async (req, res) => {
 
 export const logoutUser = (req, res) => {
   try {
-    res.cookie("Token", "", { maxAge: 0 });
+    res.cookie("jwt", "", { maxAge: 0 });
     res.status(200).json({ message: "Logged out successfully" });
   } catch (error) {
     console.log("Error in logout controller", error.message);
