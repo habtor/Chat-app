@@ -40,10 +40,11 @@ body {
 ::-webkit-scrollbar-track {
   background: #555;
   border-radius: 5px;
+  display: none;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #8c8c8c;
+  background: #3b3b3b;
   border-radius: 5px;
 }
 
