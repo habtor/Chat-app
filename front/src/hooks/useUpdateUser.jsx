@@ -6,10 +6,11 @@ const useUpdateUser = () => {
   const [loading, setLoading] = useState(false);
   const { authUser } = useAuthContext();
 
-  const updateUser = async (fullname, username) => {
+  const updateUser = async (fullname, username, profilePic) => {
     const success = handleInputErrors({
       fullname,
       username,
+      profilePic,
     });
     if (!success) return;
 
@@ -21,6 +22,7 @@ const useUpdateUser = () => {
         body: JSON.stringify({
           fullname,
           username,
+          profilePic,
         }),
       });
 
@@ -40,9 +42,11 @@ const useUpdateUser = () => {
 };
 export default useUpdateUser;
 
-function handleInputErrors({ fullname, username }) {
-  if (!fullname && !username) {
-    toast.error("Please fill in at least one field");
+function handleInputErrors({ fullname, username, profilePic }) {
+  if (!fullname && !username && !profilePic) {
+    toast.error(
+      "Please fill in at least one field or provide a profile picture"
+    );
     return false;
   }
   return true;

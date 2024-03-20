@@ -15,9 +15,11 @@ const Profile = () => {
     <div className="z-10">
       <div className="text-white font-bold text-2xl flex items-center justify-between w-full mb-5">
         <div className="flex items-center cursor-default">
-          <div className="flex items-center rounded-full h-16 w-16 bg-cover bg-center">
+          <div
+            className={`flex items-center rounded-full h-20 w-20 bg-cover bg-center `}
+            style={{ backgroundImage: `url(${authUser.profilePic})` }}
+          >
             {" "}
-            <img className="w-16" src={authUser.profilePic} alt="" />
           </div>
           <div className="flex flex-col">
             <span className="text-lg ml-2 text-gray-600 font-medium">
