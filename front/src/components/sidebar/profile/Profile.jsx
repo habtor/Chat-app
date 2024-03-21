@@ -12,7 +12,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="z-10">
+    <div className="z-10 pr-2">
       <div className="text-white font-bold text-2xl flex items-center justify-between w-full mb-5">
         <div className="flex items-center cursor-default">
           <div

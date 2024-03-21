@@ -6,7 +6,7 @@ import SearchInput from "./SearchInput";
 
 const Sidebar = () => {
   return (
-    <div className=" border-slate-500 p-4 flex flex-col min-w-72 bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-60 z-10">
+    <div className="flex flex-col mx-auto bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-50 p-5 pr-2 w-72 rounded-2xl sm:rounded-tr-none sm:rounded-br-none">
       <Profile />
       <SearchInput />
       <div className="divider px-3 font-bold mt-10">Chats</div>
