@@ -26,21 +26,23 @@ const SearchInput = () => {
     } else toast.error("No such user found!");
   };
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="inShadoww p-2 input-bordered outline-none rounded-full flex justify-between items-center gap-2"
-    >
-      <input
-        type="text"
-        placeholder="Search contacts..."
-        className=" bg-inherit outline-none text-xs"
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-      />
-      <button type="submit">
-        <IoSearchSharp className="w-5 h-5 outline-none m-auto hover:text-blue-500" />
-      </button>
-    </form>
+    <div className="pr-2">
+      <form
+        onSubmit={handleSubmit}
+        className="inShadoww p-2 input-bordered outline-none rounded-full flex justify-between items-center gap-2"
+      >
+        <input
+          type="text"
+          placeholder="Search contacts..."
+          className=" bg-inherit outline-none text-xs"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+        <button type="submit">
+          <IoSearchSharp className="w-5 h-5 outline-none m-auto hover:text-blue-500" />
+        </button>
+      </form>
+    </div>
   );
 };
 export default SearchInput;
