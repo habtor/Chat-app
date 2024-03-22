@@ -26,7 +26,7 @@ const SearchInput = () => {
     } else toast.error("No such user found!");
   };
   return (
-    <div className="pr-2">
+    <div className="pr-4">
       <form
         onSubmit={handleSubmit}
         className="inShadoww p-2 input-bordered outline-none rounded-full flex justify-between items-center gap-2"
