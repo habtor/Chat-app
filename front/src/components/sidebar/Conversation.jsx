@@ -1,13 +1,7 @@
 import useConversation from "../../zustand/useConversation";
 import { extractTime } from "../../utils/extractTime";
 
-const Conversation = ({
-  conversation,
-  lastIdx,
-  emoji,
-  currentUserID,
-  messages,
-}) => {
+const Conversation = ({ conversation, lastIdx, currentUserID, messages }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();
   const isSelected = selectedConversation?._id === conversation._id;
 
@@ -54,9 +48,7 @@ const Conversation = ({
                 {lastMessage ? lastMessage.message : "Start a conversation"}
               </p>
             </div>
-            <span className="text-sm flex items-center">
-              {formattedTime ? formattedTime : emoji}
-            </span>
+            <span className="text-sm flex items-center">{formattedTime}</span>
           </div>
         </div>
       </div>

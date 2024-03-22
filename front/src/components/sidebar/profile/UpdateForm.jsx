@@ -27,7 +27,7 @@ function UpdateForm() {
   };
   return (
     <div className="flex flex-col items-center justify-center absolute left-0 top-0  w-full h-full ">
-      <div className="w-full p-6 rounded-lg rounded-tr-none rounded-br-none shadow-md bg-gray-400 bg-clip-padding backdrop-filter text-slate-100 backdrop-blur-lg bg-opacity-80 h-full">
+      <div className="w-full p-6 rounded-xl sm:rounded-tr-none sm:rounded-br-none shadow-md bg-gray-400 bg-clip-padding backdrop-filter text-slate-100 backdrop-blur-lg bg-opacity-80 h-full">
         <form>
           <div className="relative rounded-full w-[100px] border-2 border-white hover:border-2 hover:text-blue-800 m-auto hover:border-blue-800 transition-all duration-300">
             <label htmlFor="image-upload" className="cursor-pointer">

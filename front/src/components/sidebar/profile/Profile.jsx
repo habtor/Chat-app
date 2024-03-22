@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "../../../context/AuthContext";
-import { GoPencil } from "react-icons/go";
+import { TfiPencil } from "react-icons/tfi";
 import UpdateForm from "./UpdateForm";
 
 const Profile = () => {
@@ -12,7 +12,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="z-10 pr-2">
+    <div className="z-10 pr-4">
       <div className="text-white font-bold text-2xl flex items-center justify-between w-full mb-5">
         <div className="flex items-center cursor-default">
           <div
@@ -31,8 +31,8 @@ const Profile = () => {
           </div>
         </div>
         <div className="flex text-gray-600  rounded-full ">
-          <GoPencil
-            className="h-5 w-5 cursor-pointer hover:text-blue-500"
+          <TfiPencil
+            className="h-6 w-6 cursor-pointer hover:text-blue-500 transition-all"
             onClick={() => handleShowUpdateForm()}
           />
 
