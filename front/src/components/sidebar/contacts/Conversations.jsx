@@ -1,8 +1,7 @@
-import useGetConversations from "../../hooks/useGetConversations";
-
+import useGetConversations from "../../../hooks/useGetConversations";
 import Conversation from "./Conversation";
-import useGetAllMessages from "../../hooks/useGetAllMsgs";
-import { useAuthContext } from "../../context/AuthContext";
+import useGetAllMessages from "../../../hooks/useGetAllMsgs";
+import { useAuthContext } from "../../../context/AuthContext";
 
 const Conversations = () => {
   const { authUser } = useAuthContext();

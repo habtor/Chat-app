@@ -1,5 +1,5 @@
-import useConversation from "../../zustand/useConversation";
-import { extractTime } from "../../utils/extractTime";
+import useConversation from "../../../zustand/useConversation";
+import { extractTime } from "../../../utils/extractTime";
 
 const Conversation = ({ conversation, lastIdx, currentUserID, messages }) => {
   const { selectedConversation, setSelectedConversation } = useConversation();

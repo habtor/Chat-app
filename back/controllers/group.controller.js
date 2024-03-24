@@ -18,6 +18,7 @@ export const createGroup = async (req, res) => {
       description,
       creator,
       participants: [creator],
+      image: "https://cdn1.iconfinder.com/data/icons/ui-4/502/group-512.png",
     });
 
     await newGroup.save();
@@ -44,10 +45,26 @@ export const getGroups = async (req, res) => {
   }
 };
 
-export const addParticipantToGroup = async (req, res) => {
+export const getOneGroup = async (req, res) => {
+  try {
+    const { id: groupId } = req.params;
+    const senderId = req.user._id;
+
+    const groupChat = await Group.findOne({ _id: groupId });
+
+    if (!groupChat) return res.status(200).json([]);
+
+    return res.status(200).json(groupChat);
+  } catch (error) {
+    console.log("Error in getGroup controller", error.message);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const updateGroup = async (req, res) => {
   try {
     const { id: groupToUpdate } = req.params;
-    const { username } = req.body;
+    const { name, description, image, username } = req.body;
     const loggedInUserId = req.user._id;
 
     const group = await Group.findOne({ _id: groupToUpdate });
@@ -62,17 +79,28 @@ export const addParticipantToGroup = async (req, res) => {
         .json({ error: "You are not the creator of the group" });
     }
 
-    const participant = await User.findOne({ username });
-
-    if (!participant) {
-      return res.status(400).json({ error: "Participant not found" });
+    if (name) {
+      group.name = name;
     }
 
-    if (group.participants.includes(participant._id)) {
-      return res.status(400).json({ error: "Participant already in group" });
+    if (description) {
+      group.description = description;
     }
 
-    group.participants.push(participant._id);
+    if (image) {
+      group.image = image;
+    }
+
+    if (username) {
+      const participant = await User.findOne({ username });
+      if (!participant) {
+        return res.status(400).json({ error: "Username not found" });
+      }
+      if (group.participants.includes(participant._id)) {
+        return res.status(400).json({ error: "Username already in group" });
+      }
+      group.participants.push(participant._id);
+    }
 
     await group.save();
 
@@ -109,14 +137,27 @@ export const sendGroupMessage = async (req, res) => {
     }
 
     await group.save();
-    // await conversation.save();
-    // await newMessage.save();
-    // OR the follwing is better because it run in paralel
-    //   await Promise.all([conversation.save(), newMessage.save()]);
 
     res.status(201).json(newGroupMessage);
   } catch (error) {
     console.log("Error in sendGroupMessage controller", error.message);
     res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+export const getGroupMessages = async (req, res) => {
+  try {
+    const { id: groupId } = req.params;
+
+    const groupChat = await Group.findOne({ _id: groupId });
+
+    if (!groupChat) return res.status(200).json([]);
+
+    const messages = groupChat.messages;
+
+    return res.status(200).json(messages);
+  } catch (error) {
+    console.log("Error in getGroup controller", error.message);
+    res.status(500).json({ error: "Internal server error in get one" });
   }
 };
