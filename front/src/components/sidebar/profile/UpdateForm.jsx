@@ -14,7 +14,6 @@ function UpdateForm() {
 
   const handleUploadImage = (e) => {
     const file = e.target.files[0];
-    console.log(file);
     if (file.size > 70000)
       return toast.error("Image size must be less than 70kb");
     convertToBase64(file).then((res) => {

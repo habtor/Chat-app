@@ -18,7 +18,7 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);
-app.use("/api/group", groupRoutes);
+app.use("/api/groups", groupRoutes);
 app.use("/api/users", userRoutes);
 
 app.get("/", (req, res) => {

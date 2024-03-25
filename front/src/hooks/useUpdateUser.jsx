@@ -30,9 +30,11 @@ const useUpdateUser = () => {
       if (data.error) {
         throw new Error(data.error);
       }
-      console.log(data);
+      toast.success("User updated successfully");
+      return true;
     } catch (error) {
       toast.error(error.message);
+      return false;
     } finally {
       setLoading(false);
     }

@@ -5,7 +5,7 @@ const LogoutButton = () => {
   const { loading, logout } = useLogout();
 
   return (
-    <div className="mt-3">
+    <div>
       {!loading ? (
         <BiLogOut
           className="w-6 h-6 text-black cursor-pointer hover:text-red-500 transition-all duration-200 ease-in-out"
