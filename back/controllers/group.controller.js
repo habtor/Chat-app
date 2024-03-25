@@ -1,5 +1,6 @@
 import Group from "../models/group.model.js";
 import User from "../models/user.model.js";
+import GroupMessage from "../models/groupMessages.js";
 
 export const createGroup = async (req, res) => {
   try {
@@ -127,16 +128,17 @@ export const sendGroupMessage = async (req, res) => {
       return res.status(400).json({ error: "You are not a participant" });
     }
 
-    const newGroupMessage = {
+    const newGroupMessage = new GroupMessage({
       sender,
       content: message,
-    };
+    });
 
     if (newGroupMessage) {
       group.messages.push(newGroupMessage);
     }
 
     await group.save();
+    await newGroupMessage.save();
 
     res.status(201).json(newGroupMessage);
   } catch (error) {
@@ -149,10 +151,11 @@ export const getGroupMessages = async (req, res) => {
   try {
     const { id: groupId } = req.params;
 
-    const groupChat = await Group.findOne({ _id: groupId });
+    const groupChat = await Group.findOne({ _id: groupId }).populate(
+      "messages"
+    );
 
-    if (!groupChat) return res.status(200).json([]);
-
+    if (!groupChat) return res.status(404).json({ error: "Group not found" });
     const messages = groupChat.messages;
 
     return res.status(200).json(messages);

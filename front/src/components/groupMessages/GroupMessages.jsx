@@ -1,20 +1,17 @@
 import GroupMessage from "./GroupMessage";
-import useGetOneGroup from "../../hooks/useGetOneGroup";
+import useGetGroupMessages from "../../hooks/useGetGroupMessages";
 import { useEffect, useRef } from "react";
-import useGroup from "../../zustand/useGroup";
 
 const GroupMessages = () => {
-  const { loading } = useGetOneGroup();
-  const { selectedGroup } = useGroup();
+  const { messages, loading } = useGetGroupMessages();
   const lastMessageRef = useRef();
+  console.log(messages);
 
   useEffect(() => {
     setTimeout(() => {
       lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
     }, 100);
-  }, [selectedGroup?.messages]);
-
-  const messages = selectedGroup?.messages || [];
+  }, [messages]);
 
   return (
     <div className="px-4 flex-1 overflow-auto">
