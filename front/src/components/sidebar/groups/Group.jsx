@@ -37,7 +37,7 @@ const Conversation = ({ group, lastIdx }) => {
       >
         <div className={`avatar`}>
           <div className="w-12 rounded-full">
-            <img src={group.image} alt="user avatar" />
+            <img src={group.image} alt="group avatar" />
           </div>
         </div>
 

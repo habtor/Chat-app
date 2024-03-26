@@ -4,12 +4,11 @@ import GroupMessages from "./GroupMessages";
 import { useAuthContext } from "../../context/AuthContext";
 import { useEffect } from "react";
 import { IoArrowBackOutline } from "react-icons/io5";
-import { TfiPencil } from "react-icons/tfi";
+import UpdateGroupForm from "../sidebar/groups/UpdateGroupForm";
 
 const GroupMessageContainer = () => {
   const { selectedGroup, setSelectedGroup } = useGroup();
-  //   console.log(selectedGroup);
-
+  
   const heandleHide = () => {
     setSelectedGroup(null);
   };
@@ -44,7 +43,7 @@ const GroupMessageContainer = () => {
               </span>
             </div>
             <div>
-              <TfiPencil className="h-6 w-12 cursor-pointer hover:text-blue-500 transition-all pr-5" />
+              <UpdateGroupForm />
             </div>
           </div>
           <div className="px-10">

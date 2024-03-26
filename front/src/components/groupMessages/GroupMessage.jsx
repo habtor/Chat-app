@@ -3,7 +3,8 @@ import { extractTime, extractDate } from "../../utils/extractTime";
 
 const GroupMessage = ({ message }) => {
   const { authUser } = useAuthContext();
-  const fromMe = message.sender === authUser._id;
+ 
+  const fromMe = message.sender._id === authUser._id;
   const formattedTime = extractTime(message.createdAt);
   const messageDay = extractDate(message?.createdAt);
   const chatClassName = fromMe ? "chat-end" : "chat-start";

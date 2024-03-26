@@ -35,9 +35,12 @@ export const getGroups = async (req, res) => {
   try {
     const loggedInUserId = req.user._id;
 
-    const filteredGroups = await Group.find({
-      participants: { $all: [loggedInUserId] },
-    });
+    const filteredGroups = await Group.find({ participants: loggedInUserId })
+      .populate({
+        path: "participants",
+        select: "-password", 
+      })
+      .exec();
 
     res.status(200).json(filteredGroups);
   } catch (error) {
@@ -75,9 +78,9 @@ export const updateGroup = async (req, res) => {
     }
 
     if (group.creator.toString() !== loggedInUserId.toString()) {
-      return res
-        .status(400)
-        .json({ error: "You are not the creator of the group" });
+      return res.status(400).json({
+        error: "Only group creator can update or add members to group",
+      });
     }
 
     if (name) {
@@ -107,7 +110,7 @@ export const updateGroup = async (req, res) => {
 
     res.status(200).json(group);
   } catch (error) {
-    console.log("Error in addParticipantToGroup controller", error.message);
+    console.log("Error in updateGroup controller", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 };
@@ -151,9 +154,13 @@ export const getGroupMessages = async (req, res) => {
   try {
     const { id: groupId } = req.params;
 
-    const groupChat = await Group.findOne({ _id: groupId }).populate(
-      "messages"
-    );
+    const groupChat = await Group.findOne({ _id: groupId }).populate({
+      path: "messages",
+      populate: {
+        path: "sender",
+        model: "User",
+      },
+    });
 
     if (!groupChat) return res.status(404).json({ error: "Group not found" });
     const messages = groupChat.messages;

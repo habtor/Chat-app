@@ -1,7 +1,6 @@
 import useCreateGroup from "../../../hooks/useCreateGroup";
 import { RiChatNewFill } from "react-icons/ri";
 import { useState } from "react";
-import toast from "react-hot-toast";
 
 function AddGroupForm() {
   const [groupName, setGroupName] = useState("");

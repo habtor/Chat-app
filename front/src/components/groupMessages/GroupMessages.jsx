@@ -5,8 +5,7 @@ import { useEffect, useRef } from "react";
 const GroupMessages = () => {
   const { messages, loading } = useGetGroupMessages();
   const lastMessageRef = useRef();
-  console.log(messages);
-
+  
   useEffect(() => {
     setTimeout(() => {
       lastMessageRef.current?.scrollIntoView({ behavior: "smooth" });
