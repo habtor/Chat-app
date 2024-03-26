@@ -15,7 +15,7 @@ router.get("/", protectRoute, getGroups);
 router.get("/:id/messages", protectRoute, getGroupMessages);
 router.get("/:id", protectRoute, getOneGroup);
 router.post("/", protectRoute, createGroup);
-router.post("/:id", protectRoute, updateGroup);
+router.patch("/:id", protectRoute, updateGroup);
 router.post("/send/:id", protectRoute, sendGroupMessage);
 
 export default router;

@@ -1,4 +1,5 @@
 import useGetGroups from "../../../hooks/useGetGroups";
+import AddGroupForm from "./AddGroupForm";
 import Group from "./Group";
 
 const Conversations = () => {
@@ -6,6 +7,7 @@ const Conversations = () => {
 
   return (
     <div className="py-2 pr-2 flex flex-col overflow-auto">
+      <AddGroupForm />
       {groups.map((group, idx) => (
         <Group
           key={group._id}

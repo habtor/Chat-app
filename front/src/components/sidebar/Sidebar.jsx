@@ -4,7 +4,6 @@ import Profile from "./profile/Profile";
 import SearchInput from "./SearchInput";
 import Groups from "./groups/Groups";
 import useFilter from "../../zustand/chatFilter";
-import AddGroupForm from "./groups/AddGroupForm";
 
 const Sidebar = () => {
   const { selectedFilter, setSelectedFilter } = useFilter();
@@ -17,7 +16,7 @@ const Sidebar = () => {
       <Profile />
       <SearchInput />
       <div className="divider px-3 font-bold mt-10 pr-8">Chats</div>
-      
+
       <div>
         <span
           className={`${
@@ -36,9 +35,9 @@ const Sidebar = () => {
           Groups
         </span>
       </div>
-      <AddGroupForm />
+
       {selectedFilter === "Contacts" ? <Conversations /> : <Groups />}
-      
+
       <div className="flex justify-between absolute bottom-3 w-60">
         <LogoutButton />
       </div>
