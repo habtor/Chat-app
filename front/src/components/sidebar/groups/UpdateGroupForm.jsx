@@ -10,7 +10,6 @@ function UpdateGroupForm() {
   const [groupParticipants, setGroupParticipants] = useState("");
   const [showForm, setShowForm] = useState(false);
   const { selectedGroup } = useGroup();
-  console.log(selectedGroup);
 
   const { updateGroup } = useUpdateGroup();
 
@@ -51,7 +50,7 @@ function UpdateGroupForm() {
               className={`flex items-center rounded-full h-24 w-24 bg-cover bg-center m-auto`}
               style={{ backgroundImage: `url(${selectedGroup.image})` }}
             ></div>
-            <p className="text-c text-center w-72 m-auto my-5">
+            <p className="text-c text-center max-w-72 m-auto my-5">
               {selectedGroup.description}
             </p>
           </div>
@@ -67,7 +66,7 @@ function UpdateGroupForm() {
               <input
                 type="text"
                 placeholder="Add group name"
-                className="w-72 input input-bordered h-10 text-white"
+                className="w-full input input-bordered h-10 text-white"
                 value={groupName}
                 onChange={(e) => setGroupName(e.target.value)}
               />

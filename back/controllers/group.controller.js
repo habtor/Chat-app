@@ -38,7 +38,7 @@ export const getGroups = async (req, res) => {
     const filteredGroups = await Group.find({ participants: loggedInUserId })
       .populate({
         path: "participants",
-        select: "-password", 
+        select: "-password",
       })
       .exec();
 
@@ -119,7 +119,7 @@ export const sendGroupMessage = async (req, res) => {
   try {
     const { message } = req.body;
     const { id: groupId } = req.params;
-    const sender = req.user._id;
+    const sender = req.user;
 
     const group = await Group.findOne({ _id: groupId });
 
@@ -127,7 +127,7 @@ export const sendGroupMessage = async (req, res) => {
       return res.status(400).json({ error: "Group not found" });
     }
 
-    if (!group.participants.includes(sender)) {
+    if (!group.participants.includes(sender._id)) {
       return res.status(400).json({ error: "You are not a participant" });
     }
 
@@ -140,8 +140,7 @@ export const sendGroupMessage = async (req, res) => {
       group.messages.push(newGroupMessage);
     }
 
-    await group.save();
-    await newGroupMessage.save();
+    await Promise.all([group.save(), newGroupMessage.save()]);
 
     res.status(201).json(newGroupMessage);
   } catch (error) {
@@ -156,6 +155,7 @@ export const getGroupMessages = async (req, res) => {
 
     const groupChat = await Group.findOne({ _id: groupId }).populate({
       path: "messages",
+      select: "-password",
       populate: {
         path: "sender",
         model: "User",
