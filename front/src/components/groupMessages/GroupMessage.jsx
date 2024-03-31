@@ -9,7 +9,18 @@ const GroupMessage = ({ message }) => {
   const messageDay = extractDate(message?.createdAt);
   const chatClassName = fromMe ? "chat-end" : "chat-start";
   const profilePic = fromMe ? authUser.profilePic : message.sender?.profilePic;
-  const bubbleBgColor = fromMe ? "bg-blue-500" : "";
+  const randomColor = Math.floor(Math.random() * 6);
+
+  const chatBubbleColors = [
+    "chat-bubble-primary",
+    "chat-bubble-secondary",
+    "chat-bubble-accent",
+    "chat-bubble-info",
+    "chat-bubble-success",
+    "chat-bubble-warning",
+    "chat-bubble-error",
+  ];
+  const bubbleBgColor = fromMe ? "bg-blue-500" : chatBubbleColors[randomColor];
 
   return (
     <>

@@ -5,7 +5,8 @@ import { useState } from "react";
 import toast from "react-hot-toast";
 
 function UpdateForm() {
-  const [userFullName, setUserFullName] = useState("");
+  const [userFirstName, setUserFirstName] = useState("");
+  const [userLastName, setUserLastName] = useState("");
   const [username, setUsername] = useState("");
   const [profilePic, setProfilPic] = useState("");
 
@@ -22,7 +23,7 @@ function UpdateForm() {
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateUser(userFullName, username, profilePic);
+    await updateUser(userFirstName, userLastName, username, profilePic);
   };
   return (
     <div className="flex flex-col items-center justify-center absolute left-0 top-0  w-full h-full ">
@@ -48,14 +49,26 @@ function UpdateForm() {
           </div>
           <div>
             <label className="label mt-5">
-              <span className="text-base text-slate-600">Full name</span>
+              <span className="text-base text-slate-600">First name</span>
             </label>
             <input
               type="text"
               placeholder="Update full name"
               className="w-full input input-bordered h-10 text-white"
-              value={userFullName}
-              onChange={(e) => setUserFullName(e.target.value)}
+              value={userFirstName}
+              onChange={(e) => setUserFirstName(e.target.value)}
+            />
+          </div>
+          <div>
+            <label className="label mt-5">
+              <span className="text-base text-slate-600">Last name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Update full name"
+              className="w-full input input-bordered h-10 text-white"
+              value={userLastName}
+              onChange={(e) => setUserLastName(e.target.value)}
             />
           </div>
           <div>

@@ -1,11 +1,11 @@
 import useCreateGroup from "../../../hooks/useCreateGroup";
-import { RiChatNewFill } from "react-icons/ri";
 import { useState } from "react";
+import useAddGroup from "../../../zustand/useShowAddGroup";
 
 function AddGroupForm() {
+  const { showAddGroup, setShowAddGroup } = useAddGroup();
   const [groupName, setGroupName] = useState("");
   const [groupDescription, setGroupDescription] = useState("");
-  const [showForm, setShowForm] = useState(false);
 
   const { createGroup } = useCreateGroup();
 
@@ -14,26 +14,19 @@ function AddGroupForm() {
     try {
       const success = await createGroup(groupName, groupDescription);
       if (success) {
-        setShowForm(!showForm);
+        setShowAddGroup(!showAddGroup);
       }
     } catch (error) {
       console.error("Error creating group:", error);
     }
-  };
-
-  const handleShowUpdateForm = () => {
-    setShowForm(!showForm);
+    setShowAddGroup(!showAddGroup);
   };
 
   return (
     <>
-      <RiChatNewFill
-        className="w-6 h-6 text-black cursor-pointer hover:text-green-700 transition-all duration-200 ease-in-out"
-        onClick={() => handleShowUpdateForm()}
-      />
       <div
         className={`flex flex-col items-center justify-center absolute left-0 top-0 z-10 w-full h-full ${
-          showForm ? "flex" : "hidden"
+          showAddGroup ? "flex" : "hidden"
         }`}
       >
         <div className="w-full p-6 rounded-xl sm:rounded-tr-none sm:rounded-br-none shadow-md bg-gray-400 bg-clip-padding backdrop-filter text-slate-100 backdrop-blur-lg bg-opacity-80 h-full">

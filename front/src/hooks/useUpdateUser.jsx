@@ -6,9 +6,10 @@ const useUpdateUser = () => {
   const [loading, setLoading] = useState(false);
   const { authUser } = useAuthContext();
 
-  const updateUser = async (fullname, username, profilePic) => {
+  const updateUser = async (firstname, lastname, username, profilePic) => {
     const success = handleInputErrors({
-      fullname,
+      firstname,
+      lastname,
       username,
       profilePic,
     });
@@ -20,7 +21,8 @@ const useUpdateUser = () => {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fullname,
+          firstname,
+          lastname,
           username,
           profilePic,
         }),
@@ -44,11 +46,15 @@ const useUpdateUser = () => {
 };
 export default useUpdateUser;
 
-function handleInputErrors({ fullname, username, profilePic }) {
-  if (!fullname && !username && !profilePic) {
+function handleInputErrors({ firstname, lastname, username, profilePic }) {
+  if (!firstname && !lastname && !username && !profilePic) {
     toast.error(
       "Please fill in at least one field or provide a profile picture"
     );
+    return false;
+  }
+  if ((firstname && !lastname) || (!firstname && lastname)) {
+    toast.error("Please fill in first and last names");
     return false;
   }
   return true;

@@ -38,7 +38,7 @@ const MessageContainer = () => {
                 alt=""
               />
               <span className="text-gray-900 font-bold">
-                {selectedConversation.fullname}
+                {selectedConversation.firstname} {selectedConversation.lastname}
               </span>
             </div>
           </div>
