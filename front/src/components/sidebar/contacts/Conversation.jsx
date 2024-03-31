@@ -28,7 +28,7 @@ const Conversation = ({ conversation, lastIdx, currentUserID, messages }) => {
   return (
     <>
       <div
-        className={`flex gap-2 items-center rounded p-2 py-1 cursor-pointer   m-2 ml-0
+        className={`flex gap-2 items-center rounded p-2 cursor-pointer m-2 ml-0
 				${isSelected ? "inShadoww" : ""}
 			`}
         onClick={() => setSelectedConversation(conversation)}
@@ -42,7 +42,9 @@ const Conversation = ({ conversation, lastIdx, currentUserID, messages }) => {
         <div className="flex flex-col flex-1">
           <div className="flex gap-3 justify-between">
             <div>
-              <p className="font-bold text-gray-700">{conversation.fullname}</p>
+              <p className="font-bold text-gray-700">
+                {conversation.firstname} {conversation.lastname}
+              </p>
 
               <p className="max-w-[10rem] max-h-4 overflow-hidden font-bold text-gray-500 text-xs">
                 {lastMessage ? lastMessage.message : "Start a conversation"}

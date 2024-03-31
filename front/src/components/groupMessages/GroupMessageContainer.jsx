@@ -14,7 +14,7 @@ const GroupMessageContainer = () => {
 
   return (
     <div
-      className={`flex flex-col w-full mx-auto bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 rounded-2xl sm:rounded-tl-none sm:rounded-bl-none `}
+      className={`flex flex-col w-full mx-auto bg-white bg-clip-padding backdrop-filter backdrop-blur-lg bg-opacity-10 rounded-2xl sm:rounded-tl-none sm:rounded-bl-none xl:rounded-br-none xl:rounded-tr-none `}
     >
       {!selectedGroup ? (
         <NoChatSelected />

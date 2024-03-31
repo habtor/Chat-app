@@ -30,7 +30,7 @@ const Conversation = ({ group, lastIdx }) => {
   return (
     <>
       <div
-        className={`flex gap-2 items-center rounded p-2 py-1 cursor-pointer   m-2 ml-0
+        className={`flex gap-2 items-center rounded p-2 cursor-pointer   m-2 ml-0
 				${isSelected ? "inShadoww" : ""}
 			`}
         onClick={() => setSelectedGroup(group)}

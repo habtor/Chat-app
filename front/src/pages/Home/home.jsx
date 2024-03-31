@@ -1,9 +1,10 @@
 import MessageContainer from "../../components/messages/MessagesContainer";
-import GroupMessageContainer from "../../components/groupMessages/GroupMessageContainer";
+import GroupMessageContainer from "../../components/groupMessages/groupMessageContainer";
 import Sidebar from "../../components/sidebar/Sidebar";
 import useConversation from "../../zustand/useConversation";
 import useGroup from "../../zustand/useGroup";
 import chatFilter from "../../zustand/chatFilter";
+import GroupInfo from "../../components/groupMessages/GroupInfo";
 
 const Home = () => {
   const { selectedFilter } = chatFilter();
@@ -29,6 +30,13 @@ const Home = () => {
           ) : (
             <GroupMessageContainer />
           )}
+        </div>
+        <div
+          className={`mx-auto w-[550px] text-black relative hidden ${
+            selectedGroup ? "xl:flex" : "hidden"
+          }`}
+        >
+          <GroupInfo />
         </div>
       </div>
     </div>

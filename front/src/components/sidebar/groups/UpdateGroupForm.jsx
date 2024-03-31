@@ -36,7 +36,7 @@ function UpdateGroupForm() {
   return (
     <>
       <TfiPencil
-        className="w-12 h-6 text-black cursor-pointer hover:text-green-700 transition-all duration-200 ease-in-out pr-1"
+        className="w-12 h-6 text-black cursor-pointer hover:text-green-700 transition-all duration-200 ease-in-out pr-1 md:absolute md:right-0 md:top-0 md:mr-5 md:mt-5  md:w-12 md:h-6 md:cursor-pointer md:hover:text-green-700 md:transition-all md:duration-200 md:ease-in-out"
         onClick={() => handleShowUpdateForm()}
       />
       <div

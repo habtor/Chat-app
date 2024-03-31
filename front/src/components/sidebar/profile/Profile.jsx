@@ -6,7 +6,7 @@ import UpdateForm from "./UpdateForm";
 const Profile = () => {
   const { authUser } = useAuthContext();
   const [showForm, setShowForm] = useState(false);
-
+ 
   const handleShowUpdateForm = () => {
     setShowForm(!showForm);
   };
@@ -23,7 +23,7 @@ const Profile = () => {
           </div>
           <div className="flex flex-col">
             <span className="text-lg ml-2 text-gray-600 font-medium">
-              {authUser.fullname}
+              {authUser.firstname} {authUser.lastname}
             </span>
             <span className="text-xs text-gray-400 ml-2">
               {authUser.username}
