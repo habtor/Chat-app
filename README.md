@@ -17,7 +17,7 @@ This application was created as a practice to improve my skills by createing a f
 
 <hr>
 
-- Update profile and error handleing with __toast__
+- Update profile and error dispaly with __toast__
 
 <img style="width: 24em;" align="left" src="https://res.cloudinary.com/domvgm4cs/image/upload/v1711886084/contact-update_zggsdz.png">
 <img style="width: 24em;"  src="https://res.cloudinary.com/domvgm4cs/image/upload/v1711886508/toast_oo8seb.png">
