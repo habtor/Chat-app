@@ -1,5 +1,5 @@
 import MessageContainer from "../../components/messages/MessagesContainer";
-import GroupMessageContainer from "../../components/groupMessages/groupMessageContainer";
+import GroupMessageContainer from "../../components/groupMessages/GroupMessageContainer";
 import Sidebar from "../../components/sidebar/Sidebar";
 import useConversation from "../../zustand/useConversation";
 import useGroup from "../../zustand/useGroup";
