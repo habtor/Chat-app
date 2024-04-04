@@ -6,10 +6,11 @@ import messageRoutes from "./routes/messages.routes.js";
 import groupRoutes from "./routes/group.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import connectToMongoDB from "./db/connectToMongoDB.js";
+import { app, server } from "./socket/socket.js";
 import cors from "cors"; // Import cors package
 
 dotenv.config();
-const app = express();
+
 const PORT = process.env.PORT || 8000;
 app.use(cors());
 // to parse the incoming requests with JSON payloads (from req.body)
@@ -25,7 +26,7 @@ app.get("/", (req, res) => {
   res.send("Root route");
 });
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   connectToMongoDB();
   console.log(`Server is running on PORT ${PORT}`);
 });
