@@ -13,6 +13,42 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
+.onlin {
+  --borderWidth: 4px;
+  background: #1d1f20;
+  position: relative;
+  border-radius: 100%;
+}
+.onlin::after {
+  content: "";
+  position: absolute;
+  top: calc(-1 * var(--borderWidth));
+  left: calc(-1 * var(--borderWidth));
+  height: calc(100% + var(--borderWidth) * 2);
+  width: calc(100% + var(--borderWidth) * 2);
+  background: linear-gradient(
+    #f73333,
+    #33ff00,
+    #0033ff,
+    #ff9100,
+    #fbff00,
+    #a807b3,
+    #6fba82
+  );
+  border-radius: 100%;
+  z-index: -1;
+  animation: animatedgradient 2s ease alternate infinite;
+  background-size: 300% 300%;
+}
+
+@keyframes animatedgradient {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 .inShadoww {
   box-shadow: inset 2px 2px 2px #b4b4b4, inset -2px -2px 2px #ffffff;
