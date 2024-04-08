@@ -2,13 +2,15 @@ import User from "../models/user.model.js";
 
 export const getUsersForSidebar = async (req, res) => {
   try {
-    const loggedInUserId = req.user._id;
+    
+    const loggedInUser = await User.findById(req.user._id);
+    const contactUserIds = loggedInUser.contacts;
 
-    const filteredUsers = await User.find({
-      _id: { $ne: loggedInUserId },
-    }).select("-password");
+    const contacts = await User.find({ _id: { $in: contactUserIds } }).select(
+      "-password"
+    );
 
-    res.status(200).json(filteredUsers);
+    res.status(200).json(contacts);
   } catch (error) {
     console.log("Error in getUsersForSidebar controller", error.message);
     res.status(500).json({ error: "Internal server error" });
@@ -31,7 +33,7 @@ export const updateUser = async (req, res) => {
     ) {
       return res
         .status(400)
-        .send("You should update at least one user's property");
+        .json({ error: "You should update at least one user's property" });
     }
 
     if (firstname && lastname) {
@@ -51,6 +53,45 @@ export const updateUser = async (req, res) => {
     res.status(200).json(theUser);
   } catch (error) {
     console.log("Error in getUsersForSidebar controller", error.message);
-    res.status(500).json({ error: "Internal server error",error: error.message});
+    res
+      .status(500)
+      .json({ error: "Internal server error", error: error.message });
+  }
+};
+
+export const addUserToContacts = async (req, res) => {
+  try {
+    const { username } = req.body;
+
+    const loggedInUser = await User.findById(req.user._id);
+
+    const userToBeAdded = await User.findOne({ username });
+
+    if (!userToBeAdded) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    if (loggedInUser._id.toString() === userToBeAdded._id.toString()) {
+      return res
+        .status(400)
+        .json({ error: "You can't add yourself to contacts" });
+    }
+
+    if (loggedInUser.contacts.includes(userToBeAdded._id)) {
+      return res.status(400).json({ error: "User already in contacts" });
+    }
+
+    loggedInUser.contacts.push(userToBeAdded._id);
+    userToBeAdded.contacts.push(loggedInUser._id);
+
+    await loggedInUser.save();
+    await userToBeAdded.save();
+
+    return res.status(200).json(loggedInUser);
+  } catch (error) {
+    console.log("Error in addUserToContacts controller", error.message);
+    return res
+      .status(500)
+      .json({ error: "Internal server error", message: error.message });
   }
 };

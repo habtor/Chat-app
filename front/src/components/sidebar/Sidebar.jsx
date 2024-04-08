@@ -6,13 +6,15 @@ import Groups from "./groups/Groups";
 import useFilter from "../../zustand/chatFilter";
 import { RiChatNewFill } from "react-icons/ri";
 import useAddGroup from "../../zustand/useShowAddGroup";
+import useAddUser from "../../zustand/useShowAddUser";
 import { IoIosContact } from "react-icons/io";
 import { IoIosContacts } from "react-icons/io";
 
 const Sidebar = () => {
   const { setShowAddGroup } = useAddGroup();
+  const { setShowAddUser } = useAddUser();
   const { selectedFilter, setSelectedFilter } = useFilter();
-  
+
   const handleContactsClick = () => {
     setSelectedFilter("Contacts");
   };
@@ -63,7 +65,10 @@ const Sidebar = () => {
             onClick={() => setShowAddGroup(true)}
           />
         ) : (
-          <RiChatNewFill className="w-6 h-6 text-black cursor-pointer hover:text-green-700 transition-all duration-200 ease-in-out" />
+          <RiChatNewFill
+            className="w-6 h-6 text-black cursor-pointer hover:text-green-700 transition-all duration-200 ease-in-out"
+            onClick={() => setShowAddUser(true)}
+          />
         )}
       </div>
     </div>
