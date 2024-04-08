@@ -24,7 +24,6 @@ const MessageInput = () => {
   };
 
   useEffect(() => {
-    console.log(userTyping);
     const handleTypingNotification = (username) => {
       setUserTyping(username);
     };
