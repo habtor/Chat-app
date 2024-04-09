@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "nodemon back/server.js"
+    "server": "nodemon back/server.js",
+    "start": "node back/server.js",
+    "build": "npm install && npm install --prefix front && npm run build --prefix front"
   },
   "type": "module",
   "keywords": [],
