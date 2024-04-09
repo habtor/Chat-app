@@ -15,6 +15,8 @@ export const SocketProvider = ({ children }) => {
 
   useEffect(() => {
     if (authUser) {
+      // change the url to your server url on RENDER
+      // https://chat-app-two6.onrender.com/
       const socket = io("https://chat-app-two6.onrender.com/", {
         query: { userId: authUser._id },
       });
