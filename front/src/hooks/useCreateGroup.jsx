@@ -1,8 +1,9 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
-
+import useGroup from "../zustand/useGroup";
 const useCreateGroup = () => {
   const [loading, setLoading] = useState(false);
+  const { groups, setGroups } = useGroup();
 
   const createGroup = async (name, description) => {
     const success = handleInputErrors({
@@ -26,6 +27,7 @@ const useCreateGroup = () => {
       if (data.error) {
         throw new Error(data.error);
       }
+      setGroups([...groups, data]);
       toast.success("Group created successfully");
       return true;
     } catch (error) {

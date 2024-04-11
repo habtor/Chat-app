@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import useGroup from "../zustand/useGroup";
 
 const useGetGroups = () => {
+  const {groups, setGroups} = useGroup();
   const [loading, setLoading] = useState(false);
-  const [groups, setGroups] = useState([]);
+  // const [groups, setGroups] = useState([]);
 
   useEffect(() => {
     const getGroups = async () => {
