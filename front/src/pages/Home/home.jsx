@@ -11,7 +11,7 @@ const Home = () => {
   const { selectedConversation } = useConversation();
   const { selectedGroup } = useGroup();
   return (
-    <div className="flex sm:w-full min-h-[650px] sm:h-3/4 w-[306px] max-w-[1200px]  p-1 border-[4px] border-gray-200 border-opacity-70 rounded-3xl  text-black">
+    <div className="flex sm:w-full h-full sm:h-3/4 w-[306px] max-w-[1200px]  p-1 border-[4px] border-gray-200 border-opacity-70 rounded-3xl  text-black">
       <div className="flex w-full max-w-[1200px] rounded-3xl  text-black">
         <div
           className={`sm:flex rounde-br-2xl flex rounded-lg  mx-auto  ${

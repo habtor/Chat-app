@@ -5,6 +5,8 @@ const useGroup = create((set) => ({
   setSelectedGroup: (group) => set({ selectedGroup: group }),
   messages: [],
   setMessages: (messages) => set({ messages }),
+  groups: [],
+  setGroups: (groups) => set({ groups }),
 }));
 
 export default useGroup;

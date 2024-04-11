@@ -87,7 +87,7 @@ export const addUserToContacts = async (req, res) => {
     await loggedInUser.save();
     await userToBeAdded.save();
 
-    return res.status(200).json(loggedInUser);
+    return res.status(200).json(userToBeAdded);
   } catch (error) {
     console.log("Error in addUserToContacts controller", error.message);
     return res
