@@ -14,10 +14,10 @@ const Conversations = () => {
   return (
     <div className="py-2 pr-2 flex flex-col overflow-auto">
       <AddUserForm />
-      {contacts.map((conversation, idx) => (
+      {contacts.map((contact, idx) => (
         <Conversation
-          key={conversation._id}
-          conversation={conversation}
+          key={contact._id}
+          conversation={contact}
           lastIdx={idx === contacts.length - 1}
           messages={messages}
           currentUserID={authUser._id}
