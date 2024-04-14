@@ -4,7 +4,8 @@ import useSignup from "../../hooks/useSignup";
 
 const SignUp = () => {
   const [inputs, setInputs] = useState({
-    fullname: "",
+    firstname: "",
+    lastname: "",
     username: "",
     password: "",
     confirmPassword: "",
@@ -41,7 +42,7 @@ const SignUp = () => {
               }
             />
           </div>
-          
+
           <div>
             <label className="label p-2">
               <span className="text-base text-slate-800 label-text">
