@@ -32,7 +32,7 @@ const useSignup = () => {
         body: JSON.stringify({
           firstname,
           lastname,
-          username,
+          username: username.toLowerCase(),
           password,
           confirmPassword,
         }),
