@@ -5,6 +5,10 @@ This application was created as a practice to improve my skills by createing a f
     <img  src="https://res.cloudinary.com/domvgm4cs/image/upload/v1713199416/APP_rrzzxp.png">
 </div>
 
+<div align=center>
+    <img height="700" src="https://res.cloudinary.com/domvgm4cs/image/upload/v1713206074/app22_mtvy8o.png">
+</div>
+
 ## Features
 - Add contacts and chat with them.
 - Create chat groups and add participants.
