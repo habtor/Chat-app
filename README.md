@@ -1,5 +1,5 @@
 # Chat-app _<sub><a href="https://chat-app-two6.onrender.com/" size="5px">try-it</a></sub>_
-This application was created as a practice to improve my skills by createing a full-stack MERN application that use `socket.io` to make a real-time application.
+This application was created as a practice to improve my skills by createing a full-stack MERN application that use <a href="https://socket.io/">`socket.io`</a> to make a real-time application.
 
 <div align=center>
     <img  src="https://res.cloudinary.com/domvgm4cs/image/upload/v1713199416/APP_rrzzxp.png">
