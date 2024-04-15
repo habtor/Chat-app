@@ -5,6 +5,13 @@ This application was created as a practice to improve my skills by createing a f
     <img  src="https://res.cloudinary.com/domvgm4cs/image/upload/v1713199416/APP_rrzzxp.png">
 </div>
 
+## Features
+- Chat with contacts
+- Chat in group
+- Authentication with `JWT`
+- Real-time messaging with `Socket.io`
+- See online users
+
 ## 1. Setup
 
 First, we have to install all packages in the main folder, we run:
