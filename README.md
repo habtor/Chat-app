@@ -1,4 +1,4 @@
-# Chat-app
+# Chat-app _<sub><a href="https://chat-app-two6.onrender.com/" size="5px">try-it</a></sub>_
 This application was created as a practice to improve my skills by createing a full-stack MERN application that use `socket.io` to make a real-time application.
 
 ## 1. Setup
@@ -46,6 +46,7 @@ The base stack of the app is a MERN stack (Mongoose, Express, React, Node). Next
 - `jsonwebtoken` || For authentication. See [docs](https://jwt.io/)
 - `socket.io` || For real-time messaging (for the backend). See [docs](https://socket.io/docs/v4/server-api/)
 
+<hr>
 
 - Chat with your contact
 <img src="https://res.cloudinary.com/domvgm4cs/image/upload/v1711886083/contact_j4nvw9.png">
