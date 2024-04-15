@@ -1,8 +1,8 @@
 # Chat-app _<sub><a href="https://chat-app-two6.onrender.com/" size="5px">try-it</a></sub>_
 This application was created as a practice to improve my skills by createing a full-stack MERN application that use `socket.io` to make a real-time application.
 
-<div style="border: 2px solid #000000; border-radius: 10px; padding: 10px;">
-    <img style="border: 2px solid #000000; border-radius: 10px; padding: 10px;"  src="https://res.cloudinary.com/domvgm4cs/image/upload/v1713199416/APP_rrzzxp.png">
+<div align=center>
+    <img  src="https://res.cloudinary.com/domvgm4cs/image/upload/v1713199416/APP_rrzzxp.png">
 </div>
 
 ## 1. Setup
