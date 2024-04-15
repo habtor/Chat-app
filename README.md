@@ -6,11 +6,11 @@ This application was created as a practice to improve my skills by createing a f
 </div>
 
 ## Features
-- Chat with contacts
-- Chat in group
-- Authentication with `JWT`
-- Real-time messaging with `Socket.io`
-- See online users
+- Add contacts and chat with them.
+- Create chat groups and add participants.
+- Authentication with `JWT`.
+- Real-time messaging with `Socket.io`.
+- See online users.
 
 ## 1. Setup
 
