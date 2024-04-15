@@ -50,7 +50,3 @@ The base stack of the app is a MERN stack (Mongoose, Express, React, Node). Next
 - `jsonwebtoken` || For authentication. See [docs](https://jwt.io/)
 - `socket.io` || For real-time messaging (for the backend). See [docs](https://socket.io/docs/v4/server-api/)
 
-
-- Update group
-  
-<img style="width: 24em;" src="https://res.cloudinary.com/domvgm4cs/image/upload/v1711886083/group-update_lt6ejn.png">
