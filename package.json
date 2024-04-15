@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon back/server.js",
-    "start": "node back/server.js",
+    "start": "concurrently \"npm run server\" \"npm run dev\"",
+    "dev": "cd front && npm run dev",
     "build": "npm install && npm install --prefix front && npm run build --prefix front"
   },
   "type": "module",
@@ -14,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.2",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
