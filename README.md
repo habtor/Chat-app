@@ -1,6 +1,10 @@
 # Chat-app _<sub><a href="https://chat-app-two6.onrender.com/" size="5px">try-it</a></sub>_
 This application was created as a practice to improve my skills by createing a full-stack MERN application that use `socket.io` to make a real-time application.
 
+<div style="border: 2px solid #000000; border-radius: 10px; padding: 10px;">
+    <img style="border: 2px solid #000000; border-radius: 10px; padding: 10px;"  src="https://res.cloudinary.com/domvgm4cs/image/upload/v1713199416/APP_rrzzxp.png">
+</div>
+
 ## 1. Setup
 
 First, we have to install all packages in the main folder, we run:
@@ -46,31 +50,6 @@ The base stack of the app is a MERN stack (Mongoose, Express, React, Node). Next
 - `jsonwebtoken` || For authentication. See [docs](https://jwt.io/)
 - `socket.io` || For real-time messaging (for the backend). See [docs](https://socket.io/docs/v4/server-api/)
 
-<hr>
-
-- Chat with your contact
-<img src="https://res.cloudinary.com/domvgm4cs/image/upload/v1711886083/contact_j4nvw9.png">
-
-<hr>
-
-- Chat in group
-<img src="https://res.cloudinary.com/domvgm4cs/image/upload/v1711886084/group_qxij37.png">
-
-<hr>
-
-- Responsive design
-
-<img style="width: 24em;" align="left" src="https://res.cloudinary.com/domvgm4cs/image/upload/v1711886083/group-small_hh0ndf.png">
-<img style="width: 24em;" src="https://res.cloudinary.com/domvgm4cs/image/upload/v1711886084/first_z32vyb.png">
-
-<hr>
-
-- Update profile and error dispaly with __toast__
-
-<img style="width: 24em;" align="left" src="https://res.cloudinary.com/domvgm4cs/image/upload/v1711886084/contact-update_zggsdz.png">
-<img style="width: 24em;"  src="https://res.cloudinary.com/domvgm4cs/image/upload/v1711886508/toast_oo8seb.png">
-
-<hr>
 
 - Update group
   
