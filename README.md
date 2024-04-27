@@ -53,7 +53,7 @@ The base stack of the app is a MERN stack (Mongoose, Express, React, Node). Next
 
 ### 2.3 Server-side libraries
 - `nodemon` || To automatically restart the server when in development mode. See [docs](https://nodemon.io/)
-- `bcryptjs` || To encrypt the password. See [docs](https://nodemon.io/)
+- `bcryptjs` || To encrypt the password. See [docs](https://www.npmjs.com/package/bcryptjs)
 - `cors` || To open up our API. See [docs](https://github.com/expressjs/cors#readme)
 - `mongoose` || To add schemas to our database. See [docs](https://mongoosejs.com/)
 - `cookie-parser` || To parse cookies. See [docs](https://www.npmjs.com/package/cookie-parser)
